@@ -21,7 +21,7 @@ reports/
 logs/
 
 # Model artifacts
-models/
+/models/
 *.pkl
 *.joblib
 *.h5

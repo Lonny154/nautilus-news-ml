@@ -58,6 +58,14 @@ def validate_combined_features(
             f"Combined dataset contains {duplicate_count} "
             "duplicate symbol-timestamp rows."
         )
+    
+    news_rows = int((frame["article_count"] > 0).sum())
+
+    if news_rows == 0:
+        raise ValueError(
+            "No news features were matched to any market bars. "
+            "Check whether the market and news date ranges overlap."
+        )
 
     print("\nValidation summary")
     print("------------------")
